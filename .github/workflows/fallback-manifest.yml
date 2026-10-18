@@ -5,7 +5,7 @@ on:
     branches: ["main"]
   pull_request:
 env:
-  DEVELOPER_DIR: /Applications/Xcode_16.0.app
+  DEVELOPER_DIR: /Applications/Xcode_16.4.app
 
 jobs:
   fallback-manifest-build:
