@@ -1,14 +1,14 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.4
 
 import PackageDescription
 
 let package = Package(
     name: "FairFlag",
     platforms: [
-        .iOS(.v13),
-        .watchOS(.v6),
-        .tvOS(.v13),
-        .macOS(.v10_15),
+        .iOS(.v15),
+        .watchOS(.v9),
+        .tvOS(.v15),
+        .macOS(.v12),
         .visionOS(.v1),
     ],
     products: [

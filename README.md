@@ -23,13 +23,14 @@ On China-model iPhone and iPad devices, the Taiwan flag emoji may not render cor
 
 ## Requirements
 
-- Swift 5.3+
-- iOS 13.0+
-- iPadOS 13.0+
-- watchOS 6.0+
-- tvOS 13.0+
-- macOS 10.15+
-- visionOS 1.0+
+| Platform | Swift 6.4+ (Xcode 27+) | Swift 5.9–6.3 (Xcode 15–26) |
+| -------- | ---------------------- | --------------------------- |
+| iOS      | 15.0+                  | 13.0+                       |
+| iPadOS   | 15.0+                  | 13.0+                       |
+| watchOS  | 9.0+                   | 6.0+                        |
+| tvOS     | 15.0+                  | 13.0+                       |
+| macOS    | 12.0+                  | 10.15+                      |
+| visionOS | 1.0+                   | 1.0+                        |
 
 ## Usage
 
