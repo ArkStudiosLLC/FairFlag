@@ -1,0 +1,32 @@
+name: Fallback Manifest
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+env:
+  DEVELOPER_DIR: /Applications/Xcode_16.0.app
+
+jobs:
+  fallback-manifest-build:
+    name: fallback-manifest-build
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Verify manifest selection
+        run: |
+          set -euo pipefail
+          tools_version=$(swift package dump-package | jq -r '.toolsVersion._version')
+          echo "Selected manifest tools version: $tools_version"
+          test "$tools_version" = "5.9.0"
+      - name: Build
+        run: |
+          set -euo pipefail
+          for platform in iOS tvOS watchOS visionOS macOS; do
+            echo "Building for $platform"
+            xcodebuild build \
+              -scheme FairFlag \
+              -destination "generic/platform=$platform"
+          done
