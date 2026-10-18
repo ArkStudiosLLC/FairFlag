@@ -1,14 +1,14 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.4
 
 import PackageDescription
 
 let package = Package(
     name: "ExampleShared",
     platforms: [
-        .iOS(.v14),
-        .watchOS(.v7),
-        .tvOS(.v14),
-        .macOS(.v11),
+        .iOS(.v15),
+        .watchOS(.v9),
+        .tvOS(.v15),
+        .macOS(.v12),
         .visionOS(.v1),
     ],
     products: [
