@@ -24,7 +24,7 @@ body:
     options:
     - label: If possible, I reproduced this with the latest package version.
       required: false
-    - label: I checked [existing issues](https://github.com/tatsuz0u/FairFlag/issues) and didn’t find a duplicate.
+    - label: I checked [existing issues](https://github.com/ArkStudiosLLC/FairFlag/issues) and didn’t find a duplicate.
       required: true
 - type: textarea
   attributes:

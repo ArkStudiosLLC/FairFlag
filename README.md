@@ -36,7 +36,7 @@ On China-model iPhone and iPad devices, the Taiwan flag emoji may not render cor
 Add `FairFlag` to your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/tatsuz0u/FairFlag", from: "1.0.0")
+.package(url: "https://github.com/ArkStudiosLLC/FairFlag", from: "1.0.0")
 ```
 
 In a SwiftUI view:
