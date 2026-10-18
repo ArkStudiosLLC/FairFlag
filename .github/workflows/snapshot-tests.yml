@@ -61,16 +61,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+      # The runner image pairs every preinstalled watch simulator with an iPhone simulator.
+      # Testing on a paired watch makes xcodebuild boot that iPhone and connect through it,
+      # which intermittently hangs, so the tests run on a fresh, unpaired watch instead.
+      - name: Create watch simulator
+        id: watch-simulator
+        run: |
+          set -euo pipefail
+          udid=$(xcrun simctl create "Snapshot Watch" "Apple Watch Series 12 (46mm)" "watchOS 27.0")
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
       - name: Run tests
-        uses: nick-fields/retry@v4
-        with:
-          retry_on: error
-          max_attempts: 5
-          timeout_minutes: 10
-          command: |
-            xcodebuild clean test \
-              -skipMacroValidation \
-              -project "Example/Example.xcodeproj" \
-              -scheme "ExampleWatch Watch App" \
-              -testPlan "ExampleWatchTests" \
-              -destination "platform=watchOS Simulator,name=Apple Watch Series 12 (46mm),OS=27.0"
+        run: |
+          set -euo pipefail
+          echo "Running watchOS snapshot tests"
+          xcodebuild clean test \
+            -skipMacroValidation \
+            -project "Example/Example.xcodeproj" \
+            -scheme "ExampleWatch Watch App" \
+            -testPlan "ExampleWatchTests" \
+            -destination "id=${{ steps.watch-simulator.outputs.udid }}"
